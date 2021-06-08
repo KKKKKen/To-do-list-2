@@ -11,8 +11,10 @@
 <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickrmin.css">
     <link rel="stylesheet" href="https://npmcdn.com/flatpickr/dist/themes/material_blu1e.css"> -->
 
+<!-- ホームページのコピペ -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
 
 </head>
 <body>
@@ -58,17 +60,20 @@
  </main>
 
 
- <script src="https://npmcdn.com/flatpickr/dist/flatpickr.min.js"></script>
+ <!-- <script src="https://npmcdn.com/flatpickr/dist/flatpickr.min.js"></script> -->
  
  
- <!-- 日本語 -->
- <script src="https://npmcdn.com/flatpickr/dist/l10n/ja.js"></script>
- 
- 
+  <!-- 日本語 -->
+<script src="https://npmcdn.com/flatpickr/dist/flatpickr.min.js"></script>
+<script src="https://npmcdn.com/flatpickr/dist/l10n/ja.js"></script>
+
+<!-- テーマ -->
+<link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/airbnb.css">
+
  <script>
  flatpickr(document.getElementById('due_date'), {
  locale: 'ja',
-//  dateFormat: "Y/m/d",
+ dateFormat: "Y-m-d",
  minDate: new Date(),
  });
  </script>
