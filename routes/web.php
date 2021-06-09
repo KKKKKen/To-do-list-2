@@ -27,5 +27,7 @@ Route::get('/folders/{id}/tasks/create', 'TaskController@create')->name('tasks.c
 Route::post('/folders/{id}/tasks/store', 'TaskController@store')->name('tasks.store');
 
 // フォルダ編集
+
 Route::get('/folders/{id}/tasks/{task_id}/edit', 'TaskController@edit')->name('tasks.edit');
 Route::post('/folders/{id}/tasks/{task_id}/update', 'TaskController@update')->name('tasks.update');
+

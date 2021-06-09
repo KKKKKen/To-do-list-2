@@ -1,36 +1,60 @@
 @extends('layout')
 
 @section('styles')
-<!-- ホームページのコピペ -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 @endsection
 
-
 @section('content')
- <div class="container">
+
+<div class="container">
  <div class="row">
  <div class="col col-md-offset-3 col-md-6">
  <nav class="panel panel-default">
- <div class="panel-heading"> タスクを追加する </div>
+ <div class="panel-heading"> タスクを編集する </div>
  <div class="panel-body">
- @if($errors->any())
- <div class="alert alert-danger">
- @foreach($errors->all() as $message)
- <p>{{ $message }}</p>
- @endforeach
+@if($errors->any())
+<div class="alert alert-danger">
+<ul>
+@foreach($errors->all() as $message)
+<li>{{ $message }}</li>
+@endforeach
+</ul>
+</div>
+@endif
  </div>
  @endif
- <form action="{{ route('tasks.store', ['id' => $folder_id]) }}" method="POST">
+ <form action="{{ 
+route('tasks.edit', ['id' => $task->folder_id, 'task_id' =>$task->id ]) }}" 
+ method="POST">
  @csrf
  <div class="form-group">
  <label for="title"> タイトル </label>
- <input type="text" class="form-control" name="title" id="title" value="{{ old('title') }}" />
+ <input type="text" class="form-control" name="title" id="title" 
+ value="{{ old('title') ?? $task->title }}" />
+ </div>
+
+ <div class="form-group">
+ <label for="status">状態</label>
+ <select name="status" id="status" class="form-control">
+ @foreach(\App\Task::STATUS as $key => $value)
+<option value="{{ $key }}"
+{{ $key == old('status', $task->status) ? 'selected' : '' }}
+>
+{{ $value['label'] }}
+</option>
+ @endforeach
+ </select>
  </div>
  <div class="form-group">
  <label for="due_date"> 期限 </label>
- <input type="text" class="form-control" name="due_date" id="due_date" value="{{ old('due_date') }}" />
+ <input type="text" class="form-control" name="due_date" id="due_date" 
+ value="{{ old('due_date', $task->formatted_due_date) }}" />
  </div>
+
+
+
+
  <div class="text-right">
  <button type="submit" class="btn btn-primary"> 送信 </button>
  </div>
@@ -40,11 +64,13 @@
  </div>
  </div>
  </div>
- @endsection
+
+
+@endsection
 
 @section('scripts')
   <!-- 日本語 -->
-<script src="https://npmcdn.com/flatpickr/dist/flatpickr.min.js"></script>
+  <script src="https://npmcdn.com/flatpickr/dist/flatpickr.min.js"></script>
 <script src="https://npmcdn.com/flatpickr/dist/l10n/ja.js"></script>
 
 <!-- テーマ -->
@@ -57,5 +83,4 @@
  minDate: new Date(),
  });
  </script>
-
 @endsection

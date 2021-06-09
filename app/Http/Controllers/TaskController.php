@@ -59,8 +59,11 @@ class TaskController extends Controller
         ]);
     }
 
-    public function edit()
+    public function edit(Int $id, Int $task_id)
     {
-        
+        $task = Task::find($task_id);
+        return view('tasks/edit', [
+            'task' => $task,
+        ]);
     }
 }

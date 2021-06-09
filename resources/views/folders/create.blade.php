@@ -1,22 +1,6 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/css/style.css">
+@extends('layout')
 
-    <!-- <link rel="stylesheet" href="/css/style.css"> -->
-</head>
-<body>
-
-<header>
-<nav class="my-navbar">
-<a class="my-navbar-brand" href="/">ToDo App</a>フォルダ作成機能 71
-</nav>
-</header>
-<main>
+@section('content')
 <div class="container">
 <div class="row">
 <div class="col col-md-offset-3 col-md-6">
@@ -53,7 +37,4 @@ value="{{ old('title') }}">
 </div>
 </div>
 </div>
-</main>
-    
-</body>
-</html>
+@endsection
