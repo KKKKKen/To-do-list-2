@@ -1,8 +1,7 @@
 @extends('layout')
 
 @section('styles')
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+@include('share.flatpicker.styles')
 @endsection
 
 @section('content')
@@ -21,7 +20,7 @@
 @endforeach
 </ul>
 </div>
-@endif
+
  </div>
  @endif
  <form action="{{ 
@@ -37,7 +36,7 @@ route('tasks.edit', ['id' => $task->folder_id, 'task_id' =>$task->id ]) }}"
  <div class="form-group">
  <label for="status">状態</label>
  <select name="status" id="status" class="form-control">
- @foreach(\App\Task::STATUS as $key => $value)
+ @foreach(\App\Models\Task::STATUS as $key => $value)
 <option value="{{ $key }}"
 {{ $key == old('status', $task->status) ? 'selected' : '' }}
 >
@@ -69,18 +68,6 @@ route('tasks.edit', ['id' => $task->folder_id, 'task_id' =>$task->id ]) }}"
 @endsection
 
 @section('scripts')
-  <!-- 日本語 -->
-  <script src="https://npmcdn.com/flatpickr/dist/flatpickr.min.js"></script>
-<script src="https://npmcdn.com/flatpickr/dist/l10n/ja.js"></script>
 
-<!-- テーマ -->
-<link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/airbnb.css">
-
- <script>
- flatpickr(document.getElementById('due_date'), {
- locale: 'ja',
- dateFormat: "Y-m-d",
- minDate: new Date(),
- });
- </script>
+@include('share.flatpicker.scripts')
 @endsection

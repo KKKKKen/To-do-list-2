@@ -1,9 +1,7 @@
 @extends('layout')
 
 @section('styles')
-<!-- ホームページのコピペ -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+@include('share.flatpicker.styles')
 @endsection
 
 
@@ -43,19 +41,6 @@
  @endsection
 
 @section('scripts')
-  <!-- 日本語 -->
-<script src="https://npmcdn.com/flatpickr/dist/flatpickr.min.js"></script>
-<script src="https://npmcdn.com/flatpickr/dist/l10n/ja.js"></script>
 
-<!-- テーマ -->
-<link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/airbnb.css">
-
- <script>
- flatpickr(document.getElementById('due_date'), {
- locale: 'ja',
- dateFormat: "Y-m-d",
- minDate: new Date(),
- });
- </script>
-
+@include('share.flatpicker.scripts')
 @endsection

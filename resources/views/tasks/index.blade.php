@@ -58,7 +58,9 @@ class="btn btn-default btn-block"
  <span class="label">{{ $task->status }}</span>
  </td>
  <td>{{ $task->formatted_due_date }}</td>
- <td><a href="#"> 編集 </a></td>
+ <td><a 
+ href="{{ route('tasks.edit', ['id' =>$task->folder_id , 'task_id' => $task->id]) }}"> 編集 
+ </a></td>
  </tr>
  @endforeach
  </tbody>
