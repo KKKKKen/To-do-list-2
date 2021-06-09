@@ -30,7 +30,8 @@ class AddUserIdToFoldersTable extends Migration
     {
         Schema::table('folders', function (Blueprint $table) {
             //
-            $table->dropColumn('user_id');
+            // dropColumとdropIfExists違い
+            $table->dropIfExists('user_id');
         });
     }
 }

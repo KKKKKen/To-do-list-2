@@ -31,3 +31,5 @@ Route::post('/folders/{id}/tasks/store', 'TaskController@store')->name('tasks.st
 Route::get('/folders/{id}/tasks/{task_id}/edit', 'TaskController@edit')->name('tasks.edit');
 Route::post('/folders/{id}/tasks/{task_id}/update', 'TaskController@update')->name('tasks.update');
 
+Route::get('/', 'HomeController@index')->name('home');
+
