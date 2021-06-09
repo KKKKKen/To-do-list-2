@@ -1,21 +1,7 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ToDo App</title>
-    <link rel="stylesheet" href="/css/style.css">
-</head>
+@extends("layout")
 
-<body>
-<header>
-<nav class="my-navbar">
-<a class="my-navbar-brand" href="/">ToDo App</a>
-</nav>
-</header>
 
-<main>
+@section('content')
 <div class="container">
 <div class="row">
 <div class="col col-md-4">
@@ -72,7 +58,9 @@ class="btn btn-default btn-block"
  <span class="label">{{ $task->status }}</span>
  </td>
  <td>{{ $task->formatted_due_date }}</td>
- <td><a href="#"> 編集 </a></td>
+ <td><a 
+ href="{{ route('tasks.edit', ['id' =>$task->folder_id , 'task_id' => $task->id]) }}"> 編集 
+ </a></td>
  </tr>
  @endforeach
  </tbody>
@@ -84,7 +72,4 @@ class="btn btn-default btn-block"
 </div>
 </div>
 </div>
-</main>
-
-</body>
-</html>
+@endsection

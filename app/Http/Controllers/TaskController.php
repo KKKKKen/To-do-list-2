@@ -24,7 +24,7 @@ class TaskController extends Controller
 
         return view('tasks/index', [
             'folders' => $folders,
-            // 'current_folder_id'=> $id,　はなぜダメなのか
+            // 'current_folder_id'=> $id,はなぜダメなのか
             'current_folder_id'=> $id,
             'tasks' =>$tasks,
         ]);
@@ -56,6 +56,14 @@ class TaskController extends Controller
 
         return redirect()->route('tasks.index',[
             'id' => $current_folder->id,
+        ]);
+    }
+
+    public function edit(Int $id, Int $task_id)
+    {
+        $task = Task::find($task_id);
+        return view('tasks/edit', [
+            'task' => $task,
         ]);
     }
 }

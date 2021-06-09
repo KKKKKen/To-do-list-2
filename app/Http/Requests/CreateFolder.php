@@ -25,7 +25,8 @@ class CreateFolder extends FormRequest
     {
         return [
             //
-            'title' => 'required|max:10',
+            // max:3がかかってない
+            'title' => 'required|max:3',
 
         ];
     }

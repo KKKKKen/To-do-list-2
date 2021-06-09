@@ -1,30 +1,11 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/css/style.css">
+@extends('layout')
 
-    <!-- cdn -->
-<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickrmin.css">
-    <link rel="stylesheet" href="https://npmcdn.com/flatpickr/dist/themes/material_blu1e.css"> -->
-
-<!-- ホームページのコピペ -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+@section('styles')
+@include('share.flatpicker.styles')
+@endsection
 
 
-</head>
-<body>
-    
-<header>
- <nav class="my-navbar">
- <a class="my-navbar-brand" href="/">ToDo App</a>
- </nav>
- </header>
- <main>
+@section('content')
  <div class="container">
  <div class="row">
  <div class="col col-md-offset-3 col-md-6">
@@ -57,26 +38,9 @@
  </div>
  </div>
  </div>
- </main>
+ @endsection
 
+@section('scripts')
 
- <!-- <script src="https://npmcdn.com/flatpickr/dist/flatpickr.min.js"></script> -->
- 
- 
-  <!-- 日本語 -->
-<script src="https://npmcdn.com/flatpickr/dist/flatpickr.min.js"></script>
-<script src="https://npmcdn.com/flatpickr/dist/l10n/ja.js"></script>
-
-<!-- テーマ -->
-<link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/airbnb.css">
-
- <script>
- flatpickr(document.getElementById('due_date'), {
- locale: 'ja',
- dateFormat: "Y-m-d",
- minDate: new Date(),
- });
- </script>
-
-</body>
-</html>
+@include('share.flatpicker.scripts')
+@endsection
