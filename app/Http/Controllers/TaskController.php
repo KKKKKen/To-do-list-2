@@ -6,19 +6,25 @@ use App\Models\Folder;
 use App\Models\Task;
 use CreateTasksTable;
 
+use Illuminate\Support\Facades\Auth;
+
 use Illuminate\Http\Request;
 
 
 use App\Http\Requests\CreateTask;
 use App\Http\Requests\UpdateTask;
 
+use Illuminate\Support\Facades\App;
 class TaskController extends Controller
 {
     //
     public function index(int $id)
     {
-        $folders = Folder::all();
+        // ユーザーが１人で使う場合↓
+        // $folders = Folder::all();
 
+        // ユーザーが複数の場合はuserからフォルダを取ってくる
+        $folders = Auth::user()->folders()->get();
         $current_folder = Folder::find($id);
 
         $tasks = $current_folder->tasks()->get();
