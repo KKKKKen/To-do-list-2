@@ -46,6 +46,7 @@
 <script>
 document.getElementById('logout').addEventListener('click', function(event) {
     event.preventDefault();
+    // おそらくaタグのhrefを作動させないようにする
     document.getElementById('logout-form').submit();
 });
 </script>
