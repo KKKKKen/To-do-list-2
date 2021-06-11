@@ -14,10 +14,6 @@
 </div>
 <div class="list-group">
 
-
-
-<!-- ↓ -->
-
 <table class="table">
 <thead>
 <th>フォルダ名</th>
@@ -37,15 +33,16 @@
 
 <td>
 <a style="display:block" href="{{ route('folders.edit', ['id' => $folder->id]) }}"> 編集 </a>
-<a href="{{ route('folders.edit', ['id' => $folder->id]) }}"> 削除 </a>
+
+<!-- フォルダを削除↓ -->
+<a href="{{ route('folders.destroy', ['id' => $folder->id]) }}"> 削除 </a>
+<!-- フォルダの削除↑ -->
 </td>
 </tr>
 @endforeach
 
 </tbody>
  </table>
-
-<!-- ↑ -->
 
 </div>
 </nav>
@@ -93,8 +90,10 @@ class="btn btn-default btn-block"
  </a>
  </td>
  <td>
+ <!-- タスクを削除↓ -->
  <a href="{{ route('tasks.edit', ['id' =>$task->folder_id , 'task_id' => $task->id]) }}"> 削除
  </a>
+ <!-- タスクを削除↑ -->
  </td>
 
  </tr>

@@ -56,5 +56,14 @@ class FolderController extends Controller
         ]);
     }
 
+    public function destroy()
+    {
+        
+        return redirect()->route('tasks.index', [
+
+            // フォルダのid
+        ]);
+    }
+
 
 }
