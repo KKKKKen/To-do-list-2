@@ -31,4 +31,17 @@ class FolderController extends Controller
         ]);
 
     }
+    public function edit(int $id)
+    {
+        $folder = Auth::user()->folders()->find($id);
+        return view('folders/edit', [
+            'id' => $id,
+            'folder' =>$folder,
+        ]);
+    }
+    // public function update(int $id)
+    // {
+
+    // }
+
 }
