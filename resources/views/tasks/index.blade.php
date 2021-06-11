@@ -13,13 +13,38 @@
 </a>
 </div>
 <div class="list-group">
+
+
+
+<!-- ↓ -->
+
+<table class="table">
+<thead>
+<th>フォルダ名</th>
+<th></th>
+</thead>
+
+<tbody>
 @foreach($folders as $folder)
+<tr>
+<td>
 <a href="{{ route('tasks.index', ['id' => $folder->id]) }}" 
     class="list-group-item 
     {{ $current_folder_id == $folder->id ? 'active' : '' }}">
 {{ $folder->title }}
 </a>
+</td>
+
+<td><a href="#"> 編集 </a></td>
+ 
+</tr>
 @endforeach
+
+</tbody>
+ </table>
+
+<!-- ↑ -->
+
 </div>
 </nav>
 </div>
