@@ -24,6 +24,7 @@ Route::middleware(['auth'])->group(function(){
     Route::post('/folders/{id}/update', 'FolderController@update')->name('folders.update');
     
     // フォルダ削除
+    Route::get('/folders/{id}/destroy', 'FolderController@destroy')->name('folders.destroy');
     Route::post('/folders/{id}/destroy', 'FolderController@destroy')->name('folders.destroy');
 
     // タスク作成

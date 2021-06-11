@@ -97,12 +97,14 @@ class TaskController extends Controller
         ]);
 
     }
-    
-    public function destroy()
+
+    public function destroy(int $id, int $task_id)
     {
 
+        
         return redirect()->route('tasks.index', [
 
+            
             // フォルダのid
         ]);
     }

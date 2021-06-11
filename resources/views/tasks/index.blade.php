@@ -35,8 +35,20 @@
 <a style="display:block" href="{{ route('folders.edit', ['id' => $folder->id]) }}"> 編集 </a>
 
 <!-- フォルダを削除↓ -->
-<a href="{{ route('folders.destroy', ['id' => $folder->id]) }}"> 削除 </a>
+<!-- <a href="{{ route('folders.destroy', ['id' => $folder->id]) }}"> 削除 </a> -->
 <!-- フォルダの削除↑ -->
+
+<form method="post" action="{{ route('folders.destroy', ['id'=> $folder->id]) }}"
+id="delete_{{ $folder->id }} " 
+>
+@method('DELETE')
+@csrf
+<a href="{{ route('folders.destroy', ['id'=> $folder->id]) }}" data-id="$folder->id" onclick="deletePost(this);">
+削除する
+</a>
+
+</form>
+
 </td>
 </tr>
 @endforeach
@@ -90,7 +102,13 @@ class="btn btn-default btn-block"
  </a>
  </td>
  <td>
- <!-- タスクを削除↓ -->
+ <!-- タスクを削除↓ formタグを使うには？-->
+ 
+ <!-- <form action="{{ route('tasks.edit', ['id'=>$task->folder_id, 'task_id'=>$task_id]) }}">
+ @csrf
+ 
+ </form> -->
+
  <a href="{{ route('tasks.edit', ['id' =>$task->folder_id , 'task_id' => $task->id]) }}"> 削除
  </a>
  <!-- タスクを削除↑ -->
@@ -107,4 +125,18 @@ class="btn btn-default btn-block"
 </div>
 </div>
 </div>
+@endsection
+
+@section('scripts')
+
+<script>
+function deletePost(e){
+    'use strict';
+    if(confirm('本当に削除してもいいですか？')) {
+        document.getElementById('delete_'+e.dataset.id).submit();
+    }
+}
+</script> 
+
+
 @endsection
