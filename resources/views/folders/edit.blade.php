@@ -26,7 +26,7 @@
 <div class="form-group">
 <label for="title"> フォルダ名 </label>
 <input type="text" class="form-control" name="title" id="title" 
-value="{{ old('title', ) }}">
+value="{{ old('title', $folder->title ) }}">
 <!-- ↑編集必要 -->
 </div>
 <div class="text-right">
