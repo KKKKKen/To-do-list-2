@@ -21,7 +21,7 @@
 
 </div>
 
-<form action="{{ route('folders.store') }}" method="post">
+<form action="{{ route('folders.update', ['id' => $folder->id]) }}" method="post">
 @csrf
 <div class="form-group">
 <label for="title"> フォルダ名 </label>

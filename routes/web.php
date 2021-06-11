@@ -20,9 +20,8 @@ Route::middleware(['auth'])->group(function(){
     Route::post('/folders/create', 'FolderController@store')->name('folders.store');
     
     // フォルダ編集
-    // urlにidつけようかな
     Route::get('/folders/{id}/edit', 'FolderController@edit')->name('folders.edit');
-    Route::get('/folders/{id}/update', 'FolderController@update')->name('folders.update');
+    Route::post('/folders/{id}/update', 'FolderController@update')->name('folders.update');
     
     // タスク作成
     Route::get('/folders/{id}/tasks/create', 'TaskController@create')->name('tasks.create');

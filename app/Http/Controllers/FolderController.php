@@ -9,6 +9,8 @@ use App\Http\Requests\CreateFolder;
 use Illuminate\Http\Request;
 use App\Models\Folder;
 
+use App\Http\Requests\UpdateFolder;
+
 class FolderController extends Controller
 {
     //
@@ -39,9 +41,20 @@ class FolderController extends Controller
             'folder' =>$folder,
         ]);
     }
-    // public function update(int $id)
-    // {
 
-    // }
+    public function update(int $id, UpdateFolder $request)
+    {
+        $folder = Folder::find($id);
+
+        $folder->title = $request->title;
+        Auth::user()->folders()->save($folder);
+// どっちかな？
+        // Auth::user()->folders()->find($id)->save($folder);
+
+        return redirect()->route('tasks.index', [
+            'id' =>$id,
+        ]);
+    }
+
 
 }

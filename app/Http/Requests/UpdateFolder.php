@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateFolder extends FormRequest
+class UpdateFolder extends CreateFolder
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,11 +23,9 @@ class CreateFolder extends FormRequest
      */
     public function rules()
     {
-        return [
+        $rules = parent::rules();
+        return $rules +[
             //
-            // max:3がかかってない
-            'title' => 'required|max:10',
-
         ];
     }
 }

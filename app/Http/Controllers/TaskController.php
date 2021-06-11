@@ -25,6 +25,8 @@ class TaskController extends Controller
 
         // ユーザーが複数の場合はuserからフォルダを取ってくる
         $folders = Auth::user()->folders()->get();
+        // $folders = Auth::user()->folders();
+        
 
         // $current_folder = Folder::find($id);
         // ↑オリジナル
@@ -95,4 +97,7 @@ class TaskController extends Controller
         ]);
 
     }
+
+    
+
 }
