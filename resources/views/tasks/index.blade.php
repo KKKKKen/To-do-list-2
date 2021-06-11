@@ -38,15 +38,13 @@
 <!-- <a href="{{ route('folders.destroy', ['id' => $folder->id]) }}"> 削除 </a> -->
 <!-- フォルダの削除↑ -->
 
-<form method="post" action="{{ route('folders.destroy', ['id'=> $folder->id]) }}"
-id="delete_{{ $folder->id }} " 
->
+<form method="post" action="#"
+id="delete_{{ $folder->id }} ">
 @method('DELETE')
 @csrf
 <a href="{{ route('folders.destroy', ['id'=> $folder->id]) }}" data-id="$folder->id" onclick="deletePost(this);">
 削除する
 </a>
-
 </form>
 
 </td>
@@ -104,7 +102,7 @@ class="btn btn-default btn-block"
  <td>
  <!-- タスクを削除↓ formタグを使うには？-->
  
- <!-- <form action="{{ route('tasks.edit', ['id'=>$task->folder_id, 'task_id'=>$task_id]) }}">
+ <!-- <form action="{{ route('tasks.edit', ['id'=>$task->folder_id, 'task_id'=>$task->id]) }}">
  @csrf
  
  </form> -->

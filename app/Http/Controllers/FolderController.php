@@ -56,25 +56,9 @@ class FolderController extends Controller
         ]);
     }
 
-    public function destroy(Int $id)
-    {
-        // Auth::user()->folders()も実験しようか
-        // $folder = Auth::user()->folders()->find($id)->get();
-
-        
-        // $folder = Auth::user()->folders()->find($id)->first();
-
-        $folder = Auth::user()->folders()->find($id);
-        // $folder = Folder::find($id);
+    
 
 
-        $folder->delete();
-        return redirect()->route('home', [
-            // フォルダのid
-            // 'id'=>$folder = Auth::user()->folders()->first()->id,
-            
-        ]);
-    }
 
 
 }

@@ -98,7 +98,7 @@ class TaskController extends Controller
 
     }
 
-    public function destroy(int $id, int $task_id)
+    public function destroy(int $id, Int $task_id)
     {
 
         
