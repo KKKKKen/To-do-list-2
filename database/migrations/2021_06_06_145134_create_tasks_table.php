@@ -23,7 +23,8 @@ class CreateTasksTable extends Migration
             $table->timestamps();
 
             $table->foreign('folder_id')
-            ->references('id')->on('folders');
+            ->references('id')->on('folders')
+            ->onDelete('cascade');
         });
     }
 
