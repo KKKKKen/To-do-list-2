@@ -38,14 +38,31 @@
 <!-- <a href="{{ route('folders.destroy', ['id' => $folder->id]) }}"> 削除 </a> -->
 <!-- フォルダの削除↑ -->
 
-<form method="post" action="#"
+<form 
+action="{{ route('folders.destroy', ['id' => $folder->id]) }}"
+method="post"
+id="delete_{{ $folder->id }}"
+>
+@csrf
+<a href="#" 
+data-id="{{ $folder->id }}"
+onclick="deletePost(this);"
+>削除</a>
+<!-- <input type="submit" onclick="return confirm('ok')"> -->
+</form>
+
+
+<!-- <form method="post" 
+action="{{ route('folders.destroy', ['id' => $folder->id]) }}"
 id="delete_{{ $folder->id }} ">
 @method('DELETE')
 @csrf
-<a href="{{ route('folders.destroy', ['id'=> $folder->id]) }}" data-id="$folder->id" onclick="deletePost(this);">
+ deletePost(thisかっことじ; 
+<a  type="submit" data-id="$folder->id" onclick="confirm('oK?')">
 削除する
 </a>
-</form>
+</form> 
+-->
 
 </td>
 </tr>
@@ -130,7 +147,7 @@ class="btn btn-default btn-block"
 <script>
 function deletePost(e){
     'use strict';
-    if(confirm('本当に削除してもいいですか？')) {
+    if(window.confirm('本当に削除してもいいですか？')) {
         document.getElementById('delete_'+e.dataset.id).submit();
     }
 }
