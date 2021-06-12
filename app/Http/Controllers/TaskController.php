@@ -53,7 +53,7 @@ class TaskController extends Controller
         ]);
     }
 
- 
+
 
     // 一旦Cに
 
@@ -100,11 +100,13 @@ class TaskController extends Controller
 
     public function destroy(int $id, Int $task_id)
     {
+        $folder = Auth::user()->folders()->find($id);
+        $task = $folder->tasks()->find($task_id);
+        // dd($task);
+        $task->delete();
 
-        
         return redirect()->route('tasks.index', [
-
-            
+            "id" => $folder->id,
             // フォルダのid
         ]);
     }
