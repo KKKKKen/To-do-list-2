@@ -55,6 +55,13 @@ class FolderController extends Controller
             'id' =>$id,
         ]);
     }
+    public function destroy(int $id)
+    {
+        $folder = Auth::user()->folders()->find($id);
+        $folder->delete();
+
+        return redirect()->route('home');
+    }
 
     
 
