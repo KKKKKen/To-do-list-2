@@ -19,7 +19,7 @@ class FoldersTableSeeder extends Seeder
         //
         // データ入れるために必要↓$user->idとするため
         $user = DB::table('users')->first();
-        $titles = ['プログラミング', '英語', '国語'];
+        $titles = ['プログラミング', '英語', '国語', '読書', '教養'];
 
         foreach($titles as $title){
             DB::table('folders')->insert([

@@ -38,7 +38,7 @@
 <!-- <a href="{{ route('folders.destroy', ['id' => $folder->id]) }}"> 削除 </a> -->
 <!-- フォルダの削除↑ -->
 
-<form 
+<form
 action="{{ route('folders.destroy', ['id' => $folder->id]) }}"
 method="post"
 id="delete_{{ $folder->id }}"
@@ -48,21 +48,9 @@ id="delete_{{ $folder->id }}"
 data-id="{{ $folder->id }}"
 onclick="deletePost(this);"
 >削除</a>
-<!-- <input type="submit" onclick="return confirm('ok')"> -->
 </form>
 
 
-<!-- <form method="post" 
-action="{{ route('folders.destroy', ['id' => $folder->id]) }}"
-id="delete_{{ $folder->id }} ">
-@method('DELETE')
-@csrf
- deletePost(thisかっことじ; 
-<a  type="submit" data-id="$folder->id" onclick="confirm('oK?')">
-削除する
-</a>
-</form> 
--->
 
 </td>
 </tr>
@@ -108,7 +96,7 @@ class="btn btn-default btn-block"
  <tr>
  <td>{{ $task->title }}</td>
  <td>
- <span class="label">{{ $task->status }}</span>
+ <span class="label {{ $task->status_class }}">{{ $task->status }}</span>
  </td>
  <td>{{ $task->formatted_due_date }}</td>
 
@@ -121,11 +109,27 @@ class="btn btn-default btn-block"
  
  <!-- <form action="{{ route('tasks.edit', ['id'=>$task->folder_id, 'task_id'=>$task->id]) }}">
  @csrf
- 
  </form> -->
 
- <a href="{{ route('tasks.edit', ['id' =>$task->folder_id , 'task_id' => $task->id]) }}"> 削除
- </a>
+
+
+ <form
+action="{{ route('tasks.destroy', 
+['id' => $task->folder_id, 'task_id' => $task->id]) }}"
+method="post"
+id="delete_{{ $task->folder_id }}_{{ $task->id }}"
+>
+@csrf
+<a href="#" 
+data-id="{{ $task->folder_id }}_{{ $task->id }}" 
+onclick="deletePost(this);"
+>削除</a>
+</form> 
+
+
+
+ <!-- <a href="{{ route('tasks.edit', ['id' =>$task->folder_id , 'task_id' => $task->id]) }}"> 削除
+ </a> -->
  <!-- タスクを削除↑ -->
  </td>
 
